@@ -1,0 +1,23 @@
+particle projected at 35 degrees to horizontal at 4m/s, PROJECTION
+55 smoke particles in brownian motion, BMOTION
+300 particles in random motion with weight forces from gravity, BMOTION
+simple harmonic oscillations, SHM
+vibrations of amplitude 9 meters, SHM
+random motion of lots of molecules colliding, BMOTION
+, UNDEFINED
+bullet shot out of gun at 32 degrees to horizontal travelling 8ms-1, PROJECTION
+model motion of ball thrown at 4ms-1 73 degrees to horizontal, PROJECTION
+baseball hit at 5m/s 84 degrees to horizontal, PROJECTION
+800 particles in random motion, BMOTION
+a particle of mass 0.2kg moves with simple harmonic motion of amplitude 2.0x10-2m if the total energy of the particle is 4.0x10-5J what is the time period of the motion?, SHM
+model pendulum with time period 3s, SHM
+a ball is projected with speed 40ms-1 from a point 36 meters above horizontal. model its motion if the maximum height is 12m above starting point, PROJECTION
+golf ball hit from ground travels at 30 degrees to horizontal and covers 36m. model it's motion, PROJECTION
+vibrations of constant time period 5 seconds and maximum acceleration of 3 ms-2, SHM
+animate 9000 smoke particles being randomly collided with air particles , BMOTION
+a particle received impulse at unknown angle to horizontal and travels 5 meters. only force acting on particle is weight. model it's motion, PROJECTION
+model a cricket ball which is hit directly vertically upwards 1.5 meters above the ground travelling at 4ms-1, PROJECTION
+spring oscillating with constant amplitude of 9cm, SHM
+model motion of a moon of 2.0x10^8 kilograms orbitting around the earth of 2.0x10^10 kilograms if distance is 8.0x10^5 m, UNDEFINED
+model motion of an oscillating body where acceleration = -25*displacement, SHM
+a ball is thrown from a point 12m above the ground 30 degrees below the horizontal at 25 ms-1. model it's motion, PROJECTION

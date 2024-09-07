@@ -1,0 +1,20 @@
+{% extends 'base.html' %} <!--Uses base.html as a base!-->
+
+{% block head %}
+<title>Task Master</title>
+{% endblock %}
+
+{% block body %}
+<div class="content">
+    <h1 style="text-align: center">Task Update</h1>
+
+    <div class="form">
+        <form action="/update/{{task.id}}" method="POST"> <!--This is the input text box
+            and associated Add Task button. action and method here allow 
+            text written in box to be sent to the flaskdemo.py method.-->
+            <input type="text" name="content" id="content" value="{{task.content}}">
+            <input type="submit" value="Add Task">
+        </form>
+    </div>
+</div>
+{% endblock %}
