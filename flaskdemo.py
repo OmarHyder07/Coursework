@@ -70,6 +70,10 @@ def update(id):
     else:
         return render_template("update.html", task=task)
     
+@app.route('/rectangle/')
+def rectangle():
+    return render_template("test.html")
+
 if __name__ == "__main__":
     app.run(debug=True)
 
