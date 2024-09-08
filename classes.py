@@ -40,7 +40,7 @@ class Vector:
 class Particle:
     def __init__(self, radius, colour, mass):
         self.s = Vector(random.randint(10, 390),random.randint(10, 390))
-        self.vel = Vector(random.randint(-150, 150),random.randint(-150, 150))
+        self.vel = Vector(random.randint(-150, 300),random.randint(-150, 300))
         self.acc = Vector(0, 0)
         self.radius = radius
         self.colour = colour

@@ -4,9 +4,13 @@
 # end: ctrl+c in terminal
 # change port:
 # flask run -p (5001)
-from flask import Flask, render_template, url_for, request, redirect
+from flask import Flask, render_template, url_for, request, redirect, Response
 from flask_sqlalchemy import SQLAlchemy
 from wordvectorstest import guess, load_model
+import random
+import time
+import json
+from particlesim import *
 
 model = load_model()
 
@@ -70,9 +74,40 @@ def update(id):
     else:
         return render_template("update.html", task=task)
     
-@app.route('/rectangle/')
+@app.route('/rectangle/', methods = ["GET"])
 def rectangle():
     return render_template("test.html")
+
+@app.route('/streamtest/')
+def streamtest():
+    return render_template("streamtest.html")
+
+@app.route('/stream')
+def stream():
+    def event_stream():
+        dt = 1/50 
+        space_size = 400
+        particles = []
+        for p in range(2): 
+            particles.append(Particle(20, (0,150,0), 1))
+        # ALL STUFF ABOVE WILL EVENTUALLY BE SENT FROM CLIENT
+        # (rate, particle number, particle mass, colour etc.)
+        while True:
+            qtree = generateQuadtree(space_size, particles)
+            for p in particles:
+                updateParticle(p, dt)
+            for p in particles:
+                p.boundaryCheck(space_size) 
+                checkCollisions(p, qtree, dt)
+            
+            data = []
+            for p in particles:
+                data.append(p.s.vect)
+
+            yield f"data: {json.dumps(data)}\n\n"
+            time.sleep(0.02)
+    
+    return Response(event_stream(), content_type="text/event-stream")
 
 if __name__ == "__main__":
     app.run(debug=True)

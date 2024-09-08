@@ -21,7 +21,7 @@ clock = pygame.time.Clock()
 
 running = True
 particles = []
-for p in range(0,60):
+for p in range(0,1):
     particles.append(Particle(10, (0,150,0), 1))
 
 area = Rectangle(200,200,100,100)
@@ -33,6 +33,7 @@ while running:
             running = False
     
     qtree = generateQuadtree()
+    qtree.show(screen)
     for p in particles:
         p.show(screen)
         p.colour = (0,0,255)
@@ -50,8 +51,6 @@ while running:
         for other in found: # will only run this if other particles are within given range
             if other.s.vect != p.s.vect:
                 p.collisionCheck(other, dt)
-                p.colour = (255,0,0)
-                other.colour = (255,0,0)
 
     pygame.display.flip()
     clock.tick(rate) # Sets frame rate
