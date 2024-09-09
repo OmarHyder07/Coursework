@@ -40,8 +40,8 @@ class Vector:
 class Particle:
     def __init__(self, radius, colour, mass):
         self.s = Vector(random.randint(10, 390),random.randint(10, 390))
-        self.vel = Vector(random.randint(-150, 300),random.randint(-150, 300))
-        self.acc = Vector(0, 50)
+        self.vel = Vector(random.randint(-150, 100),random.randint(-150, 100))
+        self.acc = Vector(0, 0)
         self.radius = radius
         self.colour = colour
         self.mass = mass
@@ -49,7 +49,7 @@ class Particle:
     def show(self, screen):
         pygame.draw.circle(screen, self.colour, (self.s[0], self.s[1]), self.radius)
     
-    def newCollisionResponse(self, other, e=0.8):
+    def newCollisionResponse(self, other, dt, e=1):
         relative_velocity = other.vel.minus(self.vel, 1)
         collision_normal = (other.s.minus(self.s, 1)).unit()
         velocity_along_normal = relative_velocity.dot(collision_normal)
@@ -64,14 +64,14 @@ class Particle:
         self.vel = self.vel.minus(impulse.scalarX(1/self.mass), 1)
         other.vel = other.vel.sum(impulse.scalarX(1/other.mass), 1)
 
-        self.seperateParticles(other)
+        self.seperateParticles(other, dt)
 
-    def seperateParticles(self, other):
+    def seperateParticles(self, other, dt):
         overlap = self.radius + other.radius - (self.s.minus(other.s, 1)).modulus()
         if overlap > 0:
             collision_normal = (other.s.minus(self.s, 1)).unit()
-            self.s = self.s.minus(collision_normal.scalarX(overlap/2), 1)
-            other.s = other.s.sum(collision_normal.scalarX(overlap/2), 1)
+            self.s = self.s.minus(collision_normal.scalarX(overlap/2), dt)
+            other.s = other.s.sum(collision_normal.scalarX(overlap/2), dt)
     
     def updatePosition(self, dt):
         self.s = self.s.sum(self.vel, dt)
@@ -89,7 +89,7 @@ class Particle:
         distance = self.s.minus(other.s, 1)
         distance = distance.modulus()
         if distance <= self.radius + other.radius:
-            self.newCollisionResponse(other)
+            self.newCollisionResponse(other, dt)
 
 class Circle():
     def __init__(self, x , y, r):

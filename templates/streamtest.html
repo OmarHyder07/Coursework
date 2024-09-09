@@ -2,10 +2,21 @@
 
 {% block head %}
 <title>Stream Test</title>
+<style>
+    body {
+        margin: 0;
+        overflow: hidden;
+    }
+    canvas {
+        display: block;
+        background-color: black;
+    }
+</style>
 {% endblock %}
 
 {% block body %}
+<canvas id="Canvas"></canvas>
 
-
+<script src="{{url_for('static', filename='particles.js')}}"></script>
 
 {% endblock %}

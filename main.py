@@ -21,7 +21,7 @@ clock = pygame.time.Clock()
 
 running = True
 particles = []
-for p in range(0,100):
+for p in range(50):
     particles.append(Particle(10, (0,150,0), 1))
 
 area = Rectangle(200,200,100,100)

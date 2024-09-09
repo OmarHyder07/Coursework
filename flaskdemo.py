@@ -84,11 +84,11 @@ def streamtest():
 @app.route('/stream')
 def stream():
     def event_stream():
-        dt = 1/50 
+        dt = 1/60 
         space_size = 400
         particles = []
-        for p in range(2): 
-            particles.append(Particle(10, (0,150,0), 1))
+        for p in range(25): 
+            particles.append(Particle(20, (0,150,0), 1))
         # ALL STUFF ABOVE WILL EVENTUALLY BE SENT FROM CLIENT
         # (rate, particle number, particle mass, colour etc.)
         while True:
@@ -101,10 +101,11 @@ def stream():
             
             data = []
             for p in particles:
+                p.s.vect.append(p.radius)
                 data.append(p.s.vect)
 
             yield f"data: {json.dumps(data)}\n\n"
-            time.sleep(0.02)
+            time.sleep(dt)
     
     return Response(event_stream(), content_type="text/event-stream")
 
