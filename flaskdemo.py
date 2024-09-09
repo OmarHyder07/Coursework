@@ -7,7 +7,6 @@
 from flask import Flask, render_template, url_for, request, redirect, Response
 from flask_sqlalchemy import SQLAlchemy
 from wordvectorstest import guess, load_model
-import random
 import time
 import json
 from particlesim import *
@@ -89,15 +88,15 @@ def stream():
         space_size = 400
         particles = []
         for p in range(2): 
-            particles.append(Particle(20, (0,150,0), 1))
+            particles.append(Particle(10, (0,150,0), 1))
         # ALL STUFF ABOVE WILL EVENTUALLY BE SENT FROM CLIENT
         # (rate, particle number, particle mass, colour etc.)
         while True:
             qtree = generateQuadtree(space_size, particles)
             for p in particles:
                 updateParticle(p, dt)
-            for p in particles:
                 p.boundaryCheck(space_size) 
+            for p in particles:
                 checkCollisions(p, qtree, dt)
             
             data = []

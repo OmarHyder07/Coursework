@@ -41,48 +41,37 @@ class Particle:
     def __init__(self, radius, colour, mass):
         self.s = Vector(random.randint(10, 390),random.randint(10, 390))
         self.vel = Vector(random.randint(-150, 300),random.randint(-150, 300))
-        self.acc = Vector(0, 0)
+        self.acc = Vector(0, 50)
         self.radius = radius
         self.colour = colour
         self.mass = mass
     
     def show(self, screen):
         pygame.draw.circle(screen, self.colour, (self.s[0], self.s[1]), self.radius)
+    
+    def newCollisionResponse(self, other, e=0.8):
+        relative_velocity = other.vel.minus(self.vel, 1)
+        collision_normal = (other.s.minus(self.s, 1)).unit()
+        velocity_along_normal = relative_velocity.dot(collision_normal)
 
-    def collisionResponse(self, other):
-        dist = self.s.minus(other.s, 1)
-        line = dist.unit()
+        if velocity_along_normal > 0:
+            return
         
-        #THE MATHS WORKS BUT CAN BE VASTLY IMPROED!
-        dot1 = self.vel.dot(line) 
-        b = line.modulus()**2
-        c = dot1 / b 
-        u1n = line.scalarX(c)
-        u1t = self.vel.minus(u1n, 1)
+        impulse_magnitude = velocity_along_normal * -(1+e)
+        impulse_magnitude /= (1 / self.mass + 1 / other.mass)
 
-        dot2 = other.vel.dot(line)
-        c = dot2 / b
-        u2n = line.scalarX(c)
-        u2t = other.vel.minus(u2n, 1)
+        impulse = collision_normal.scalarX(impulse_magnitude)
+        self.vel = self.vel.minus(impulse.scalarX(1/self.mass), 1)
+        other.vel = other.vel.sum(impulse.scalarX(1/other.mass), 1)
 
-        a = u2n.scalarX(2*other.mass)
-        b = self.mass - other.mass
-        c = u1n.scalarX(b)
-        d = a.sum(c, 1)
-        v1n = d.scalarX(1/(self.mass + other.mass))
-        a = u1n.scalarX(2*self.mass)
-        b = other.mass - self.mass
-        c = u2n.scalarX(b)
-        d = a.sum(c, 1)
-        v2n = d.scalarX(1/(self.mass + other.mass))
+        self.seperateParticles(other)
 
-        overlap = 0.5 * (dist.modulus() - self.radius - other.radius)
-        self.s.vect[0] = self.s.vect[0] - overlap*line.vect[0]
-        self.s.vect[1] = self.s.vect[1] - overlap*line.vect[1]
-        other.s.vect[0] = other.s.vect[0] + overlap*line.vect[0]
-        other.s.vect[1] = other.s.vect[1] + overlap*line.vect[1]
-        
-        return [v1n.sum(u1t, 1), v2n.sum(u2t, 1)]
+    def seperateParticles(self, other):
+        overlap = self.radius + other.radius - (self.s.minus(other.s, 1)).modulus()
+        if overlap > 0:
+            collision_normal = (other.s.minus(self.s, 1)).unit()
+            self.s = self.s.minus(collision_normal.scalarX(overlap/2), 1)
+            other.s = other.s.sum(collision_normal.scalarX(overlap/2), 1)
     
     def updatePosition(self, dt):
         self.s = self.s.sum(self.vel, dt)
@@ -100,11 +89,7 @@ class Particle:
         distance = self.s.minus(other.s, 1)
         distance = distance.modulus()
         if distance <= self.radius + other.radius:
-            resolvedVs = self.collisionResponse(other)
-            self.vel = resolvedVs[0]
-            other.vel = resolvedVs[1]
-            self.updatePosition(dt)
-            other.updatePosition(dt) 
+            self.newCollisionResponse(other)
 
 class Circle():
     def __init__(self, x , y, r):

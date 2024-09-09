@@ -1,0 +1,86 @@
+def collisionResponse(self, other):
+    dist = self.s.minus(other.s, 1)
+    line = dist.unit()
+    
+    #THE MATHS WORKS BUT CAN BE VASTLY IMPROED!
+    dot1 = self.vel.dot(line) 
+    b = line.modulus()**2
+    c = dot1 / b 
+    u1n = line.scalarX(c)
+    u1t = self.vel.minus(u1n, 1)
+
+    dot2 = other.vel.dot(line)
+    c = dot2 / b
+    u2n = line.scalarX(c)
+    u2t = other.vel.minus(u2n, 1)
+
+    a = u2n.scalarX(2*other.mass)
+    b = self.mass - other.mass
+    c = u1n.scalarX(b)
+    d = a.sum(c, 1)
+    v1n = d.scalarX(1/(self.mass + other.mass))
+    a = u1n.scalarX(2*self.mass)
+    b = other.mass - self.mass
+    c = u2n.scalarX(b)
+    d = a.sum(c, 1)
+    v2n = d.scalarX(1/(self.mass + other.mass))
+
+    overlap = 0.5 * (dist.modulus() - self.radius - other.radius)
+    self.s.vect[0] = self.s.vect[0] - overlap*line.vect[0]
+    self.s.vect[1] = self.s.vect[1] - overlap*line.vect[1]
+    other.s.vect[0] = other.s.vect[0] + overlap*line.vect[0]
+    other.s.vect[1] = other.s.vect[1] + overlap*line.vect[1]
+    
+    return [v1n.sum(u1t, 1), v2n.sum(u2t, 1)]
+
+
+
+    <style>
+    #container {
+        width: 400px;
+        height: 400px;
+        background-color: black;
+        position:absolute;
+    }
+
+    #particle1 {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: rgb(255, 0, 0);
+        position: absolute;
+    }
+    #particle2 {
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        background-color: aqua;
+        position: absolute;
+    }
+</style>
+
+<p> x-coord: <span id="x"></span></p>
+<button onclick="stopStream()">Stop Stream</button>
+
+<div id = container></div>
+<div id = "particle1"></div>
+<div id = "particle2"></div>
+
+<script type="text/javascript">
+    var eventSource = new EventSource("/stream");
+    eventSource.onmessage = function(event) {
+        var dataArray = JSON.parse(event.data);
+        document.getElementById("x").textContent = dataArray[0]
+        var elem1 = document.getElementById("particle1");
+        elem1.style.left = dataArray[0][0] + "px";
+        elem1.style.top = dataArray[0][1] + 50 + "px";
+        var elem2 = document.getElementById("particle2");
+        elem2.style.left = dataArray[1][0] + "px";
+        elem2.style.top = dataArray[1][1] +50 + "px";
+    }
+
+    function stopStream(){
+        eventSource.close();
+    }
+</script>
+
