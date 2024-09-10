@@ -26,6 +26,7 @@ class Todo(db.Model):
     def __repr__(self):
         return "<Task %r>" % self.id
     
+# Code below is for initialising db
 #with app.app_context():
 #    db.create_all()
 
@@ -36,7 +37,11 @@ class Todo(db.Model):
 def index():
     if request.method == "POST":
         task_content = request.form["content"]
-        new_task = Todo(content=guess(task_content, model))
+        g = guess(task_content, model)
+        print(g)
+        if g == " BMOTION":
+            return redirect('/streamtest')
+        new_task = Todo(content=g)
 
         try:
             db.session.add(new_task) #adds task to db with class methods
@@ -81,6 +86,7 @@ def rectangle():
 def streamtest():
     return render_template("streamtest.html")
 
+# '/stream' called by javascript in streamtest.html
 @app.route('/stream')
 def stream():
     def event_stream():

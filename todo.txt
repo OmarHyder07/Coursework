@@ -15,3 +15,5 @@ animation in JS?
 3: extract simulation data out of input sentance 
 4: link extracted data to simulation (JUST BMOTION FOR NOW, SHM AND PROJECTION WILL RETURN A TBD MESSAGE)
 
+change from stream to websocket so can send:
+window size, new prompts etc.
