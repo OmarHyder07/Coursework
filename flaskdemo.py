@@ -38,7 +38,6 @@ def index():
     if request.method == "POST":
         task_content = request.form["content"]
         g = guess(task_content, model)
-        print(g)
         if g == " BMOTION":
             return redirect('/streamtest')
         new_task = Todo(content=g)
@@ -89,12 +88,14 @@ def streamtest():
 # '/stream' called by javascript in streamtest.html
 @app.route('/stream')
 def stream():
-    def event_stream():
+    def particleStream():
         dt = 1/60 
         space_size = 400
         particles = []
-        for p in range(25): 
-            particles.append(Particle(20, (0,150,0), 1))
+        for p in range(20): 
+            particles.append(Particle(20, (0,150,0), 1, 1))
+        for p in range(40):
+            particles.append(Particle(5, (0,0,0), 0.5, 0))
         # ALL STUFF ABOVE WILL EVENTUALLY BE SENT FROM CLIENT
         # (rate, particle number, particle mass, colour etc.)
         while True:
@@ -108,12 +109,13 @@ def stream():
             data = []
             for p in particles:
                 p.s.vect.append(p.radius)
+                p.s.vect.append(p.isInvisible)
                 data.append(p.s.vect)
 
             yield f"data: {json.dumps(data)}\n\n"
             time.sleep(dt)
     
-    return Response(event_stream(), content_type="text/event-stream")
+    return Response(particleStream(), content_type="text/event-stream")
 
 if __name__ == "__main__":
     app.run(debug=True)

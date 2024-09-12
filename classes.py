@@ -38,13 +38,14 @@ class Vector:
     # __str__ function transforms data into string
     
 class Particle:
-    def __init__(self, radius, colour, mass):
+    def __init__(self, radius, colour, mass, isInvisible):
         self.s = Vector(random.randint(10, 390),random.randint(10, 390))
         self.vel = Vector(random.randint(-150, 100),random.randint(-150, 100))
         self.acc = Vector(0, 0)
         self.radius = radius
         self.colour = colour
         self.mass = mass
+        self.isInvisible = isInvisible
     
     def show(self, screen):
         pygame.draw.circle(screen, self.colour, (self.s[0], self.s[1]), self.radius)

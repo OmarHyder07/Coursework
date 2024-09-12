@@ -98,3 +98,4 @@ def guess(x, model):
 
     return model.predict(test_x_word_vectors)[0]
 
+

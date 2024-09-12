@@ -1,0 +1,4 @@
+Brownian Motion sim:
+    particles.js:
+        - Particles of different sizes seem to collide at a distance before actual
+          collision. Only in JS and not seen in pygame. 

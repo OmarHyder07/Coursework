@@ -20,15 +20,16 @@ var particles = [];
 function drawParticles() {
     // Clear canvas 
     particle.clearRect(0,0, canvas.width, canvas.height);
-
-    for(var i = 0; i < particles.length; i++) {
-        var p = particles[i];
-        particle.beginPath();
-        // arc draws particle/circle
-        particle.arc(p.x, p.y, p.radius/2, 0, Math.PI * 2, false);
-        particle.fillStyle = "red";
-        particle.fill();
-        particle.closePath();
+    for(var i = 0; i < particles.length; i++) {     
+        var p = particles[i];     
+        if (p.isAir != 0){
+            particle.beginPath();
+            // arc draws particle/circle
+            particle.arc(p.x, p.y, p.radius/2, 0, Math.PI * 2, false);
+            particle.fillStyle = "red";
+            particle.fill();
+            particle.closePath();
+        }
     }
 }
 
@@ -56,7 +57,8 @@ eventSource.onmessage = function(event) {
         return { // JS object which holds key-value pairs 
             x: p[0], 
             y: p[1],
-            radius: p[2]
+            radius: p[2],
+            isAir: p[3]
         }
     })
 }
