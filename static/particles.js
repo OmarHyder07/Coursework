@@ -44,7 +44,7 @@ function updateCanvas() {
 // requests browser to use our function updateCanvas BEFORE the next frame.
 requestAnimationFrame(updateCanvas);
 
-var eventSource = new EventSource("/stream");
+var eventSource = new EventSource("/bMotion");
 
 // Function runs on event (streamed particlce data from backend)
 eventSource.onmessage = function(event) {

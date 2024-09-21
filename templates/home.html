@@ -1,0 +1,44 @@
+{% extends 'base.html' %} <!--Uses base.html as a base!-->
+
+{% block head %}
+  <title>GyatGPT</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+{% endblock %}
+
+{% block body %}
+
+<div class="table">
+    {% if tasks|length < 1 %}
+    <h4 style="text-align: center">No saved prompts.</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Prompt</th>
+            <th>Category</th>
+            <th>Actions</th>
+        </tr>
+        {% for task in tasks %}
+            <tr>
+                <td>{{ task.prompt }}</td>
+                <td>{{ task.content }}</td>
+                <td>
+                    <a href="/delete/{{task.id}}">Delete</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+
+<form action="/" method="POST">
+  <div class="chat-input-container">
+    <textarea name="content" class="chat-input" placeholder="Create your simulation..."></textarea>
+    <button class="send-button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20px" height="20px">
+        <path d="M2 21L23 12 2 3v7l15 2-15 2z"/>
+      </svg>
+    </button>
+  </div>
+</form>
+
+  {% endblock %}

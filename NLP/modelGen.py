@@ -44,7 +44,7 @@ def train_model(train_x, train_y):
 # fits word vectors to train_y data, effectively making model
 ####
 
-from filewritingtest import load_traindata
+from NLP.csvReader import load_traindata
 def load_model():
     traindata = load_traindata()
     p = train_model(traindata[0], traindata[1])
@@ -68,7 +68,7 @@ def train():
         print("P, BM, SHM, UN?")
         type = input()
 
-        f = open("demofile1.csv", "a")
+        f = open("trainingData.csv", "a")
         match type:
             case "P":
                 type = Category.P

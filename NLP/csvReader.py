@@ -14,9 +14,11 @@ def load_traindata():
     print("Loading training data...")
     train_x = []
     train_y = []
-    with open("demofile1.csv") as file:
+    with open(r"C:\Users\beast\Desktop\coursework\NLP\trainingData.csv") as file:
         csv_reader = csv.reader(file, delimiter=",")
         for row in csv_reader:
             train_x.append(row[0])
             train_y.append(row[1])
     return [train_x, train_y]
+
+print(load_traindata())

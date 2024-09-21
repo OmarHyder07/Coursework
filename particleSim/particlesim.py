@@ -1,4 +1,4 @@
-from classes import *
+from particleSim.classes import *
 
 def generateQuadtree(space_size, particles):
     n = space_size/2

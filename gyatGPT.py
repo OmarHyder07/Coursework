@@ -4,12 +4,12 @@
 # end: ctrl+c in terminal
 # change port:
 # flask run -p (5001)
-from flask import Flask, render_template, url_for, request, redirect, Response
+from flask import Flask, render_template, request, redirect, Response
 from flask_sqlalchemy import SQLAlchemy
-from wordvectorstest import guess, load_model
+from NLP.modelGen import guess, load_model
 import time
 import json
-from particlesim import *
+from particleSim.particlesim import *
 
 model = load_model()
 
@@ -22,13 +22,14 @@ db = SQLAlchemy(app) #Databse
 class Todo(db.Model): 
     id = db.Column(db.Integer, primary_key=True) #Primary key
     content = db.Column(db.String(200), nullable=False)
+    prompt = db.Column(db.String(200), nullable=False)
 
     def __repr__(self):
         return "<Task %r>" % self.id
     
 # Code below is for initialising db
-#with app.app_context():
-#    db.create_all()
+# with app.app_context():
+#     db.create_all()
 
 #.route decorator below, converts function's return value into a HTTP response
 #this will be displayed on the web browser;
@@ -39,8 +40,8 @@ def index():
         task_content = request.form["content"]
         g = guess(task_content, model)
         if g == " BMOTION":
-            return redirect('/streamtest')
-        new_task = Todo(content=g)
+            return redirect('/brownianMotion')
+        new_task = Todo(content=g, prompt=task_content)
 
         try:
             db.session.add(new_task) #adds task to db with class methods
@@ -50,7 +51,7 @@ def index():
             return "There was an issue adding your task"
     else:
         tasks = Todo.query.all()
-        return render_template("index.html", tasks=tasks)
+        return render_template("home.html", tasks=tasks)
     
 @app.route('/delete/<int:id>')
 def delete(id):
@@ -62,40 +63,21 @@ def delete(id):
     except:
         return "There was a problem deleting that task"
     
-@app.route('/update/<int:id>', methods = ["GET", "POST"])
-def update(id):
-    task = Todo.query.get_or_404(id)
-
-    if request.method == "POST":
-        task.content = request.form["content"]
-
-        try:
-            db.session.commit()
-            return redirect('/')
-        except:
-            "There was a problem updating that task"
-    else:
-        return render_template("update.html", task=task)
-    
-@app.route('/rectangle/', methods = ["GET"])
-def rectangle():
-    return render_template("test.html")
-
-@app.route('/streamtest/')
-def streamtest():
-    return render_template("streamtest.html")
+@app.route('/brownianMotion/')
+def BMsim():
+    return render_template("brownianMotion.html")
 
 # '/stream' called by javascript in streamtest.html
-@app.route('/stream')
+@app.route('/bMotion')
 def stream():
     def particleStream():
         dt = 1/60 
         space_size = 400
         particles = []
-        for p in range(20): 
-            particles.append(Particle(20, (0,150,0), 1, 1))
-        for p in range(40):
-            particles.append(Particle(5, (0,0,0), 0.5, 0))
+        for p in range(40): 
+            particles.append(Particle(10, (0,150,0), 1, 1))
+        for p in range(100):
+            particles.append(Particle(2, (0,0,0), 0.5, 0))
         # ALL STUFF ABOVE WILL EVENTUALLY BE SENT FROM CLIENT
         # (rate, particle number, particle mass, colour etc.)
         while True:

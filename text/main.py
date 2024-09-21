@@ -1,4 +1,4 @@
-from classes import * # Importing classes
+from particleSim.classes import * # Importing classes
 import pygame # Importing pygame
 import math 
 

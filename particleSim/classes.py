@@ -198,3 +198,4 @@ class QuadTree():
             self.nw.show(screen)
             self.se.show(screen)
             self.sw.show(screen)
+

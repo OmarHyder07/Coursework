@@ -1,0 +1,26 @@
+NLP refinement
+NLP extract data (regex...)
+--particle collisions done by quadtree--
+test with NLP --> pygame simulation
+webapp UI 
+new db created on startup
+db holds previous messages
+option to go back into previous prompts (storing all data in db)
+input --> NLP --> physics
+--every 50ms send simulation data to front end--
+--animation in JS?--
+
+
+change from stream to websocket so can send:
+window size, new prompts etc.
+
+0: dunder methods for particle sim
+1: change from stream to websocket
+2: extract data (specifically for BMOTION)
+3: work on GUI as a springboard into other simulations 
+4: report 
+5: clean code --> version 2
+
+
+next sims to do:
+    Particle projection 
