@@ -11,16 +11,14 @@ input --> NLP --> physics
 --animation in JS?--
 
 
+next sims to do:
+    Particle projection 
+
 change from stream to websocket so can send:
 window size, new prompts etc.
 
-0: dunder methods for particle sim
 1: change from stream to websocket
-2: extract data (specifically for BMOTION)
-3: work on GUI as a springboard into other simulations 
-4: report 
-5: clean code --> version 2
+2: have window sizing dynamically changed. 
+3: fully do analysis.
+4: clean up main flask python file (thing where can have multiple files)
 
-
-next sims to do:
-    Particle projection 

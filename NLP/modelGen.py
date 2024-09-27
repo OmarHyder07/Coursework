@@ -47,9 +47,9 @@ def train_model(train_x, train_y):
 from NLP.csvReader import load_traindata
 def load_model():
     traindata = load_traindata()
-    p = train_model(traindata[0], traindata[1])
+    model = train_model(traindata[0], traindata[1])
     print("Model generated")
-    return p
+    return model
 
 def train():
     model = load_model()

@@ -20,5 +20,3 @@ def load_traindata():
             train_x.append(row[0])
             train_y.append(row[1])
     return [train_x, train_y]
-
-print(load_traindata())

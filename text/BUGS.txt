@@ -2,3 +2,6 @@ Brownian Motion sim:
     particles.js:
         - Particles of different sizes seem to collide at a distance before actual
           collision. Only in JS and not seen in pygame. 
+
+        FIX: this is because big particles make circle of their radius around them, and if small particles enter that, considered a collision.
+        Need a second verification AFTER collision detected, comparing particle radii
