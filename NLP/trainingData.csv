@@ -1,6 +1,6 @@
 particle projected at 35 degrees to horizontal at 4m/s, PROJECTION
 55 smoke particles in brownian motion, BMOTION
-300 particles in random motion with weight forces from gravity, BMOTION
+300 particles in random motion at speed 9m/s, BMOTION
 simple harmonic oscillations, SHM
 vibrations of amplitude 9 meters, SHM
 random motion of lots of molecules colliding, BMOTION

@@ -82,13 +82,22 @@ def BMsim():
 def stream():
     global window_size
     latest_record = Todo.query.order_by(Todo.id.desc()).first()
-    num = getParticleCount(latest_record.prompt)
+    print(latest_record.prompt)
+    data = getData(latest_record.prompt)
+
     dt = 1/60 
     particles = []
-    for p in range(num): 
-        particles.append(Particle(10, (0,150,0), 1, 1))
-    for p in range(100):
-       particles.append(Particle(2, (0,0,0), 0.5, 1))
+
+    i = 1
+    for group in data:
+        for p in range(group[0]):
+            particles.append(Particle(20, (0, 150, 0), 1, 1, i*group[1]))
+            i = -i
+
+    for p in range(len(particles)*2):
+       particles.append(Particle(2, (0,0,0), 0.5, 0, 50))
+       i = -i
+    
     # ALL STUFF ABOVE WILL EVENTUALLY BE SENT FROM CLIENT
     # (rate, particle number, particle mass, colour etc.)
 
@@ -110,7 +119,6 @@ def stream():
         time.sleep(dt)
     
 
-
 @socketio.on("connect")
 def handle_connect():
     print("Connected")
@@ -126,9 +134,6 @@ def window_size(data):
         window_size = data["height"]
     else:
         window_size = data["width"]
-
-
-
 
 @app.route('/SHM')
 def shm():

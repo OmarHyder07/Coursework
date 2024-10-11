@@ -9,14 +9,20 @@
     }
     canvas {
         display: block;
+        margin: auto;
+        border: solid 1px black;
+    }   
+    p {
+        color: black;
     }
+
 </style>
 {% endblock %}
 
 {% block body %}
-<canvas id="Canvas"></canvas>
+<canvas id="Canvas"> </canvas>
 
 <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
 <script src="{{url_for('static', filename='sockettest.js')}}"></script>
-
+ 
 {% endblock %}

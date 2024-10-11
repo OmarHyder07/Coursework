@@ -38,9 +38,9 @@ class Vector:
     # __str__ function transforms data into string
     
 class Particle:
-    def __init__(self, radius, colour, mass, isInvisible):
+    def __init__(self, radius, colour, mass, isInvisible, v):
         self.s = Vector(random.randint(10, 390),random.randint(10, 390))
-        self.vel = Vector(random.randint(-150, 100),random.randint(-150, 100))
+        self.vel = Vector(v, v)
         self.acc = Vector(0, 0)
         self.radius = radius
         self.colour = colour

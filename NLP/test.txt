@@ -1,0 +1,40 @@
+_train_strings = [("Simulate 3 particlces of smoke of radius 12 and high velocity", 
+                   [("3 particles of smoke", "NUM"), ("radius 12", "RADIUS"), ("high velocity", "VELOCITY")]) ]
+
+def phrase_index(txt, phrase):
+    matches = []
+    for idx in re.finditer(phrase,txt):
+        matches += (idx.start(), idx.start()+len(phrase))
+    return matches
+
+def generate_training_data(_train_strings):
+    training_data = []
+    for (txt, items) in _train_strings:
+        _ents = []
+        for (phrase, typ) in items:
+            matches = phrase_index(txt, phrase)
+            for (start, end) in matches:
+                _ents.append((start, end, typ))
+        if _ents:
+            training_data.append((txt, {"entities": _ents}))
+    return training_data
+
+
+
+# ENTITY RULER!!!!!!!!!!!!!!!!
+# can define own entity types and labels.
+
+nlp = spacy.load("en_core_web_md")
+text = "Simulate 3 particlces of smoke of radius 12 and high velocity"
+ruler = nlp.add_pipe("entity_ruler", after="ner")
+
+patterns = [
+    {"label": "RADIUS", "pattern": [{"ORTH": "radius "}, {"IS_NUM": True}]}
+]
+
+ruler.add_patterns(patterns)
+
+doc = nlp(text)
+
+for ent in doc.ents:
+    print (ent.text, ent.label_)
