@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% block head %}
+  {% endblock %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+</head>
+<body>
+    {% block body %}
+    {% endblock %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <div class="chat-input-container">
+        <textarea id="content" name="content" class="chat-input" placeholder="Create your simulation..."></textarea>
+        <select id="phrase-select">
+            <option value="" selected>-- Choose a previous prompt --</option>
+            {% for prompt in childPrompts %} 
+            <option value="{{prompt}}">{{  prompt }}</option>
+            {% endfor %}
+        </select>
+        <button class="send-button" id="clickMe" onclick="sendPrompt()"> Send
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20px" height="20px">
+            <path d="M2 21L23 12 2 3v7l15 2-15 2z"/>
+          </svg>
+        </button>
+      </div>
+        <div class="home-button">
+          <a href="/">Home</a>
+        </div>
+      <div class="Data-Output">
+        <ul id="dataList">
+          
+        </ul>
+      </div>
+    {% block scripts %}
+    {% endblock %}
+    <script src="{{url_for('static', filename='base.js')}}"></script>
+</body>
+</html>
+
+<!--Base file: this entire file is copied to the ones which extend base.html
+    Then, on the extending files, html within blocks {} will be put into the blocks on base.html
+    and since each simulate page is identical apart from the Title and scripts,
+    they can all copy this and add their scripts and titles. -->

@@ -1,0 +1,30 @@
+particle projected at 35 degrees to horizontal at 4m/s, PROJECTION
+55 smoke particles in brownian motion, BMOTION
+300 particles in random motion at speed 9m/s, BMOTION
+random motion of lots of molecules colliding, BMOTION
+, UNDEFINED
+bullet shot out of gun at 32 degrees to horizontal travelling 8ms-1, PROJECTION
+model motion of ball thrown at 4ms-1 73 degrees to horizontal, PROJECTION
+baseball hit at 5m/s 84 degrees to horizontal, PROJECTION
+800 particles in random motion, BMOTION
+a ball is projected with speed 40ms-1 from a point 36 meters above horizontal. model its motion if the maximum height is 12m above starting point, PROJECTION
+golf ball hit from ground travels at 30 degrees to horizontal and covers 36m. model it's motion, PROJECTION
+animate 9000 smoke particles being randomly collided with air particles , BMOTION
+a particle received impulse at unknown angle to horizontal and travels 5 meters. only force acting on particle is weight. model it's motion, PROJECTION
+model a cricket ball which is hit directly vertically upwards 1.5 meters above the ground travelling at 4ms-1, PROJECTION
+model motion of a moon of 2.0x10^8 kilograms orbitting around the earth of 2.0x10^10 kilograms if distance is 8.0x10^5 m, UNDEFINED
+a ball is thrown from a point 12m above the ground 30 degrees below the horizontal at 25 ms-1. model it's motion, PROJECTION
+20 particle at speed of 14ms^-1 and a mass of 3kg and like 4 more at speed 10m/s, BMOTION
+show the whole motion of a ball which starts at a height of 78 meters and is projected at an angle of 23 degrees to the horizontal with an initial speed of 14, PROJECTION
+project a ball with a speed of 14ms^-1 with an angle to the horizontal of 23 degrees, PROJECTION
+give me 3 particles of mass 2kg in random motion and have an e value for particle-particle collisions of 0.5, BMOTION
+simulate random motion of balls with a value for e to do with particles colliding with other particles being 0.3 and a value for wall-particle collisions of 1, BMOTION
+project a particle with initial speed 34 m/s that reaches a maximum height of 200 meters, PROJECTION
+simulate a particle of mass 0.2kg moving with simple harmonic motion of amplitude 2.0x10-2m and the total energy of the particle is 4.0x10-5J, SHM
+simulate the SHM of a particle of mass 1kg attached to a string of k = 2 and an initial displacement of 50cm from equilibrium, SHM
+motion of ball suspended on a string of spring constant 2 with an amplitude of 2 meters and the ball has a weight of 340 grams, SHM
+simulate an electron moving into a magnetic field of B=3T and with a speed of 1x10^6m/s, MAG 
+beam of protons with velocity 2.3x10^7m/s going into mag field of strength -2, MAG
+charged particles in a magnetic field, MAG
+charged alpha particles going into a magnetic field with B of -5 tesla, MAG
+simulate motion of an electron going into magnetic field with speed like 2e6, MAG

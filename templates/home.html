@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Home</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/home.css') }}">
+</head>
+<body>
+<div class="table">
+    {% if prompts|length < 1 %}
+    <h4 style="text-align: center">No saved prompts.</h4>
+    {% else %}
+    <table>
+        <tr>
+            <th>Prompt</th>
+            <th>Type</th>
+            <th>Actions</th>
+        </tr>
+        {% for prompt in prompts %}
+            <tr>
+                <td>{{ prompt.text }}</td>
+                <td>{{ prompt.type }}</td>
+                <td>
+                    <a href="/delete/{{prompt.id}}">Delete</a>
+                    <a href="/resimulate/{{prompt.id}}">Resimulate</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+    {% endif %}
+</div>
+<!-- HTML POST method used to send prompt to backend -->
+<form action="/" method="POST">
+  <div class="chat-input-container">
+    <textarea name="content" class="chat-input" placeholder="Create your simulation..."></textarea>
+    <button class="send-button">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" width="20px" height="20px">
+        <path d="M2 21L23 12 2 3v7l15 2-15 2z"/>
+      </svg>
+    </button>
+  </div>
+</form>
+</body>

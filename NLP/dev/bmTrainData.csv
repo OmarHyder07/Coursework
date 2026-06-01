@@ -1,0 +1,63 @@
+remove arrows, nARROWS
+please get rid of the velocity vectors, nARROWS
+disable arrows, nARROWS
+no arrow, nARROWS
+no speed vectors, nARROWS
+add arrows, pARROWS
+please add some velocity vectors, pARROWS
+enable arrows, pARROWS
+arrows, pARROWS
+speed vectors, pARROWS
+add air particles, addAIR
+can you add small invisible particles to make htis properly brownian motion, addAIR
+please include very small particles of air, addAIR
+add air particles to make the motion of the larger particles be a random-walk, addAIR
+remove air particles, removeAIR
+get rid of the small invisible particles, removeAIR
+please disable air particles, removeAIR
+add gravity, addG
+include weight forces, addG
+enable forces of weight acting vertically downwards, addG
+include gravity please, addG
+add more smoke particles, addParticles
+put 23 more particles with mass 2kg, addParticles
+add 1 more particles, addParticles
+add 1 particle of mass 35, addParticles
+add 8 particles with mass 3 and speed 45, addParticles 
+please put 40 more particles in, addParticles 
+remove gravity, removeG
+remove air, removeAIR
+get rid of air, removeAIR
+no air particles please, removeAIR
+no gravity please, removeG
+get rid of weight force, removeG
+enable weight forces, addG
+please put some gravity in, addG
+please add air particles, addAIR 
+get rid of the particles with mass 3, removeParticles
+delete all particles, removeParticles
+delete air particles, removeAIR
+remove ones with mass 8kg, removeAIR
+please get rid of particles with mass 2, removeParticles 
+please add 2 more particles with speed 29, addParticles 
+, OTHER
+bullet shot out of gun at 32 degrees to horizontal travelling 8ms-1, OTHER
+model motion of ball thrown at 4ms-1 73 degrees to horizontal, OTHER
+baseball hit at 5m/s 84 degrees to horizontal, OTHER
+a ball is projected with speed 40ms-1 from a point 36 meters above horizontal. model its motion if the maximum height is 12m above starting point, OTHER
+golf ball hit from ground travels at 30 degrees to horizontal and covers 36m. model it's motion, OTHER
+a particle received impulse at unknown angle to horizontal and travels 5 meters. only force acting on particle is weight. model it's motion, OTHER
+model a cricket ball which is hit directly vertically upwards 1.5 meters above the ground travelling at 4ms-1, OTHER
+model motion of a moon of 2.0x10^8 kilograms orbitting around the earth of 2.0x10^10 kilograms if distance is 8.0x10^5 m, OTHER
+a ball is thrown from a point 12m above the ground 30 degrees below the horizontal at 25 ms-1. model it's motion, OTHER
+project a particle with initial speed 34 m/s that reaches a maximum height of 200 meters, OTHER
+simulate a particle of mass 0.2kg moving with simple harmonic motion of amplitude 2.0x10-2m and the total energy of the particle is 4.0x10-5J, OTHER
+simulate the SHM of a particle of mass 1kg attached to a string of k = 2 and an initial displacement of 50cm from equilibrium, OTHER
+motion of ball suspended on a string of spring constant 2 with an amplitude of 2 meters and the ball has a weight of 340 grams, OTHER
+slow-mo, AddSlowMo
+slow down the simulation, AddSlowMo
+make the animation slower, AddSlowMo
+enable slow motion, AddSlowMo
+remove slow motion, NoSlowMo
+disable slo-mo, NoSlowMo
+make the animation speed normal again, NoSlowMo

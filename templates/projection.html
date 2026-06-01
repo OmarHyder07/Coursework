@@ -1,0 +1,13 @@
+{% extends 'base.html' %} <!--Uses base.html as a base!-->
+
+{% block head %}
+<title>Particle Projection</title>
+{% endblock %}
+
+{% block body %}
+<canvas id="Canvas"> </canvas>
+{% endblock %}
+
+{% block scripts %}
+<script src="{{url_for('static', filename='projection.js')}}"></script>
+{% endblock %}

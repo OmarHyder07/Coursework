@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    height: 80vh; 
+    box-sizing: border-box;
+}
+#container {
+    display: flex;
+    flex: 1; /* Allow the container to take all available space except the textarea */
+    margin: 10px;
+    gap: 10px; /* Add spacing between canvases */
+    box-sizing: border-box;
+}
+#leftCanvas {
+    flex: 1;
+    border: 1px solid black; /* Black border */
+}
+.right {
+    display: none; /* Initially hidden */
+    flex-direction: column;
+    flex: 1;
+    height: 80vh;
+}
+#topRightCanvas,
+#bottomRightCanvas {
+    flex: 1;
+    border: 1px solid black; /* Black border */
+}
+.home-button {
+    position: Absolute;
+    top: 20px;
+    right: 20px;
+}

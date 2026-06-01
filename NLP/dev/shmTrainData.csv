@@ -1,0 +1,43 @@
+remove velocity vector, removeVel
+disable arrow for velocity, removeVel
+no speed vector, removeVel
+enable arrow for velocity, addVel
+add speed, addVel
+add velocity vectors, addVel
+change the weight to 3kg, changeMass
+increase the mass to 20grams, changeMass
+make the mass 9 pounds, changeMass
+change the spring constant to 0.4, changeK
+make k 3, changeK
+decrease k to 2, changeK
+resimulate with a new starting amplitude of 34 inches, changeAmplitude
+change the maximum displacement to 3 meters, changeAmplitude
+show a velocity-time graph, vtGRAPH
+display the velocity as a function of time, vtGRAPH
+give a graph of the particles speed, vtGRAPH
+vt graph, vtGRAPH
+show an acceleration-time graph, atGRAPH
+display a as a function of time, atGRAPH
+give an a-t graph, atGRAPH
+at graph, atGRAPH
+show how potential energy and kinetic energy vary with time, energyGRAPH
+display an energy graph, energyGRAPH
+give a graph of energy over time, energyGRAPH
+energy graph, energyGRAPH
+55 smoke particles in brownian motion, OTHER
+300 particles in random motion at speed 9m/s, OTHER
+random motion of lots of molecules colliding, OTHER
+a ball is projected with speed 40ms-1 from a point 36 meters above horizontal. model its motion if the maximum height is 12m above starting point, OTHER
+golf ball hit from ground travels at 30 degrees to horizontal and covers 36m. model it's motion, OTHER
+a particle received impulse at unknown angle to horizontal and travels 5 meters. only force acting on particle is weight. model it's motion, OTHER
+model a cricket ball which is hit directly vertically upwards 1.5 meters above the ground travelling at 4ms-1, OTHER
+model motion of a moon of 2.0x10^8 kilograms orbitting around the earth of 2.0x10^10 kilograms if distance is 8.0x10^5 m, OTHER
+a ball is thrown from a point 12m above the ground 30 degrees below the horizontal at 25 ms-1. model it's motion, OTHER
+project a particle with initial speed 34 m/s that reaches a maximum height of 200 meters, OTHER
+slow-mo, AddSlowMo
+slow down the simulation, AddSlowMo
+make the animation slower, AddSlowMo
+enable slow motion, AddSlowMo
+remove slow motion, NoSlowMo
+disable slo-mo, NoSlowMo
+make the animation speed normal again, NoSlowMo

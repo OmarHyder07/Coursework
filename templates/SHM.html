@@ -1,0 +1,21 @@
+{% extends 'base.html' %} <!--Uses base.html as a base!-->
+
+{% block head %}
+    <title>Simple Harmonic Motion</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/SHM.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/base.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div id="container">
+        <canvas id="leftCanvas"></canvas>
+    </div>
+    <div class="right" id="rightContainer">
+    </div>
+{% endblock %}
+
+{% block scripts %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+<script src="{{url_for('static', filename='SHM.js')}}"></script>
+{% endblock %}

@@ -1,0 +1,49 @@
+particle projected at 35 degrees to horizontal at 4m/s, OTHER
+55 smoke particles in brownian motion, OTHER
+300 particles in random motion at speed 9m/s, OTHER
+random motion of lots of molecules colliding, OTHER
+, OTHER
+bullet shot out of gun at 32 degrees to horizontal travelling 8ms-1, OTHER
+model motion of ball thrown at 4ms-1 73 degrees to horizontal, OTHER
+baseball hit at 5m/s 84 degrees to horizontal, OTHER
+800 particles in random motion, OTHER
+a ball is projected with speed 40ms-1 from a point 36 meters above horizontal. model its motion if the maximum height is 12m above starting point, OTHER
+golf ball hit from ground travels at 30 degrees to horizontal and covers 36m. model it's motion, OTHER
+animate 9000 smoke particles being randomly collided with air particles , OTHER
+a particle received impulse at unknown angle to horizontal and travels 5 meters. only force acting on particle is weight. model it's motion, OTHER
+model a cricket ball which is hit directly vertically upwards 1.5 meters above the ground travelling at 4ms-1, OTHER
+model motion of a moon of 2.0x10^8 kilograms orbitting around the earth of 2.0x10^10 kilograms if distance is 8.0x10^5 m, OTHER
+a ball is thrown from a point 12m above the ground 30 degrees below the horizontal at 25 ms-1. model it's motion, OTHER
+20 particle at speed of 14ms^-1 and a mass of 3kg and like 4 more at speed 10m/s, OTHER
+show the whole motion of a ball which starts at a height of 78 meters and is projected at an angle of 23 degrees to the horizontal with an initial speed of 14, OTHER
+project a ball with a speed of 14ms^-1 with an angle to the horizontal of 23 degrees, OTHER
+give me 3 particles of mass 2kg in random motion and have an e value for particle-particle collisions of 0.5, OTHER
+simulate random motion of balls with a value for e to do with particles colliding with other particles being 0.3 and a value for wall-particle collisions of 1, OTHER
+project a particle with initial speed 34 m/s that reaches a maximum height of 200 meters, OTHER
+simulate a particle of mass 0.2kg moving with simple harmonic motion of amplitude 2.0x10-2m and the total energy of the particle is 4.0x10-5J, OTHER
+simulate the SHM of a particle of mass 1kg attached to a string of k = 2 and an initial displacement of 50cm from equilibrium, OTHER
+motion of ball suspended on a string of spring constant 2 with an amplitude of 2 meters and the ball has a weight of 340 grams, OTHER
+simulate an electron moving into a magnetic field of B=3T and with a speed of 1x10^6m/s, newParticle 
+charged particles in a magnetic field, newParticle
+charged alpha particles going into a magnetic field with B of -5 tesla, newParticle
+simulate motion of an electron going into magnetic field with speed like 2e6, newParticle
+simulate the motion of charged particle going into a magnetic field of mass 1.67e-27 and charge -1.6e-19 with initial speed 1x10^6, newParticle
+show another particle with mass 1e-30 and charge of an electron and initial speed 4.3x10^6, newParticle
+make magnetic field strength -3T, changeB
+b = 2, changeB
+B 3 Tesla, changeB
+make B equal to 8T, changeB
+magnetic field strength = 2T, changeB
+reduce strength of mag field to 1, changeB
+do it again but with a proton, changeType
+make it an electron, changeType
+same things but with an alpha particle, changeType
+again with electrons instead but same speed, changeType
+use the same mass and speed but with an electron, changeType
+slow-mo, AddSlowMo
+slow down the simulation, AddSlowMo
+make the animation slower, AddSlowMo
+enable slow motion, AddSlowMo
+remove slow motion, NoSlowMo
+disable slo-mo, NoSlowMo
+make the animation speed normal again, NoSlowMo

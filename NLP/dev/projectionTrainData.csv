@@ -1,0 +1,42 @@
+remove arrows, nARROWS
+please get rid of the velocity vectors, nARROWS
+disable arrows, nARROWS
+no arrow, nARROWS
+no speed vectors, nARROWS
+add arrows, pARROWS
+please add some velocity vectors, pARROWS
+enable arrows, pARROWS
+arrows, pARROWS
+speed vectors, pARROWS
+bullet shot out of gun at 32 degrees to horizontal travelling 8ms-1, PROJECTION
+model motion of ball thrown at 4ms-1 73 degrees to horizontal, PROJECTION
+baseball hit at 5m/s 84 degrees to horizontal, PROJECTION
+project a particle with initial speed 34 m/s that reaches a maximum height of 200 meters, PROJECTION
+a particle received impulse at unknown angle to horizontal and travels 5 meters. only force acting on particle is weight. model it's motion, PROJECTION
+model a cricket ball which is hit directly vertically upwards 1.5 meters above the ground travelling at 4ms-1, PROJECTION
+, OTHER
+model motion of a moon of 2.0x10^8 kilograms orbitting around the earth of 2.0x10^10 kilograms if distance is 8.0x10^5 m, OTHER
+simulate a particle of mass 0.2kg moving with simple harmonic motion of amplitude 2.0x10-2m and the total energy of the particle is 4.0x10-5J, OTHER
+simulate the SHM of a particle of mass 1kg attached to a string of k = 2 and an initial displacement of 50cm from equilibrium, OTHER
+motion of ball suspended on a string of spring constant 2 with an amplitude of 2 meters and the ball has a weight of 340 grams, OTHER
+55 smoke particles in brownian motion, OTHER
+300 particles in random motion at speed 9m/s, OTHER
+random motion of lots of molecules colliding, OTHER
+show a velocity-time graph, vtGRAPH
+display the velocity as a function of time, vtGRAPH
+give a graph of the particles speed, vtGRAPH
+vt graph, vtGRAPH
+show an acceleration-time graph, atGRAPH
+display a as a function of time, atGRAPH
+make the width of the canvas 300 meters, changeWidth
+increase the size of the area, changeWidth
+increase the size of the area to 500, changeWidth
+width to 600m, changeWidth
+make width 200000 meters, changeWidth
+slow-mo, AddSlowMo
+slow down the simulation, AddSlowMo
+make the animation slower, AddSlowMo
+enable slow motion, AddSlowMo
+remove slow motion, NoSlowMo
+disable slo-mo, NoSlowMo
+make the animation speed normal again, NoSlowMo
